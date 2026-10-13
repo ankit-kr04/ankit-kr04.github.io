@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      line-height: 1.7;
+    }
+
+    nav {
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+    }
+
+    nav a, .button {
+      color: #93c5fd;
+      text-decoration: none;
+      margin-left: 14px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.15; }
+    h2 { margin-top: 48px; }
+    .highlight { color: #60a5fa; }
+
+    .card {
+      background: #1e293b;
+      padding: 22px;
+      border-radius: 14px;
+      margin: 16px 0;
+      border: 1px solid #334155;
+    }
+
+    .button {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      margin: 10px 8px 0 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <strong>YourName</strong>
+    <div>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <p class="highlight">HELLO, WORLD!</p>
+      <h1>I'm <span class="highlight">Your Name</span>.</h1>
+      <h2 style="margin-top: 0">Aspiring Developer</h2>
+      <p>
+        I enjoy learning new technologies, solving problems,
+        and building useful projects.
+      </p>
+      <a class="button" href="https://github.com/yourusername">
+        Visit My GitHub
+      </a>
+      <a class="button" href="#projects">My Projects</a>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        I'm a developer interested in technology and software.
+        I'm currently improving my skills and creating projects
+        to showcase my work.
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="card">
+        <h3>My First Project</h3>
+        <p>Write a short description of your project here.</p>
+        <a href="https://github.com/yourusername">
+          View on GitHub →
+        </a>
+      </div>
+      <div class="card">
+        <h3>My Second Project</h3>
+        <p>Add another project and explain what it does.</p>
+        <a href="https://github.com/yourusername">
+          View on GitHub →
+        </a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Want to connect or collaborate?</p>
+      <a class="button"
+         href="https://github.com/yourusername">
+        Connect on GitHub
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Your Name · Built with HTML and CSS
+  </footer>
+</body>
+</html>
