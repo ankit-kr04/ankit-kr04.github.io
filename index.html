@@ -4,130 +4,457 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name | Portfolio</title>
+
+  <title>Ankit | Developer Portfolio</title>
+  <meta name="description" content="Welcome to Ankit's personal developer portfolio. Explore my skills, projects, and contact information.">
+
   <style>
-    * { box-sizing: border-box; }
+    /* ===== GENERAL STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
       background: #0f172a;
-      color: #f8fafc;
+      color: #f1f5f9;
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    .highlight {
+      color: #60a5fa;
+    }
+
+    /* ===== NAVIGATION ===== */
     nav {
-      padding: 20px 8%;
+      background: #111c31;
+      border-bottom: 1px solid #334155;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      min-height: 72px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #334155;
+      gap: 20px;
     }
 
-    nav a, .button {
-      color: #93c5fd;
-      text-decoration: none;
-      margin-left: 14px;
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #60a5fa;
     }
 
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 80px 24px;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
     }
 
-    h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1.15; }
-    h2 { margin-top: 48px; }
-    .highlight { color: #60a5fa; }
-
-    .card {
-      background: #1e293b;
-      padding: 22px;
-      border-radius: 14px;
-      margin: 16px 0;
-      border: 1px solid #334155;
+    .nav-links a {
+      color: #cbd5e1;
+      transition: color 0.2s;
     }
 
-    .button {
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #60a5fa;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: #60a5fa;
+      font-weight: bold;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 4.8rem);
+      line-height: 1.15;
+      margin: 18px 0;
+    }
+
+    .hero h2 {
+      color: #cbd5e1;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #94a3b8;
+      max-width: 620px;
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
       display: inline-block;
       background: #2563eb;
       color: white;
-      padding: 10px 18px;
+      padding: 12px 22px;
       border-radius: 8px;
-      margin: 10px 8px 0 0;
+      font-weight: bold;
+      transition: background 0.2s, transform 0.2s;
     }
 
-    footer {
-      text-align: center;
-      padding: 24px;
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #475569;
+    }
+
+    .btn-outline:hover {
+      background: #1e293b;
+    }
+
+    /* ===== SHARED SECTION STYLES ===== */
+    section.content-section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
       color: #94a3b8;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about-box {
+      background: #172338;
+      border: 1px solid #334155;
+      padding: 28px;
+      border-radius: 14px;
+    }
+
+    .about-box p {
+      color: #cbd5e1;
+      margin-bottom: 14px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .skill {
+      background: #1e3a5f;
+      color: #bfdbfe;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== PROJECTS SECTION ===== */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #172338;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 24px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: #60a5fa;
+    }
+
+    .project-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+
+    .project-link {
+      color: #60a5fa;
+      font-weight: bold;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-box {
+      background: #172338;
+      border: 1px solid #334155;
+      padding: 32px;
+      border-radius: 14px;
+    }
+
+    .contact-box p {
+      color: #cbd5e1;
+      margin-bottom: 18px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid #334155;
+      text-align: center;
+      padding: 25px 0;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ===== MOBILE RESPONSIVENESS ===== */
+    @media (max-width: 760px) {
+      .nav-container {
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 75px 0;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section.content-section {
+        padding: 55px 0;
+      }
     }
   </style>
 </head>
+
 <body>
+
+  <!-- ===== NAVIGATION BAR ===== -->
   <nav>
-    <strong>YourName</strong>
-    <div>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <div class="container nav-container">
+      <a class="logo" href="index.html">Ankit.dev</a>
+
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
+  <!-- ===== HOME / HERO SECTION ===== -->
   <main>
-    <section>
-      <p class="highlight">HELLO, WORLD!</p>
-      <h1>I'm <span class="highlight">Your Name</span>.</h1>
-      <h2 style="margin-top: 0">Aspiring Developer</h2>
-      <p>
-        I enjoy learning new technologies, solving problems,
-        and building useful projects.
-      </p>
-      <a class="button" href="https://github.com/yourusername">
-        Visit My GitHub
-      </a>
-      <a class="button" href="#projects">My Projects</a>
-    </section>
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="card">
-        I'm a developer interested in technology and software.
-        I'm currently improving my skills and creating projects
-        to showcase my work.
+        <h1>Hi, I'm <span class="highlight">Ankit.</span></h1>
+
+        <h2>Aspiring Developer & Technology Enthusiast</h2>
+
+        <p>
+          I enjoy learning new technologies, solving problems,
+          and building projects that turn ideas into reality.
+          Explore my portfolio to see what I'm learning and creating.
+        </p>
+
+        <div class="buttons">
+          <a class="btn" href="projects.html">Explore My Projects</a>
+
+          <a
+            class="btn btn-outline"
+            href="https://github.com/ankit-kr04"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit My GitHub
+          </a>
+        </div>
       </div>
     </section>
 
-    <section id="projects">
-      <h2>My Projects</h2>
-      <div class="card">
-        <h3>My First Project</h3>
-        <p>Write a short description of your project here.</p>
-        <a href="https://github.com/yourusername">
-          View on GitHub →
-        </a>
-      </div>
-      <div class="card">
-        <h3>My Second Project</h3>
-        <p>Add another project and explain what it does.</p>
-        <a href="https://github.com/yourusername">
-          View on GitHub →
-        </a>
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="content-section" id="about">
+      <div class="container">
+        <h2 class="section-title">About <span class="highlight">Me</span></h2>
+
+        <p class="section-description">
+          A little introduction to who I am and what I do.
+        </p>
+
+        <div class="about-box">
+          <p>
+            Hello! I'm Ankit, and I'm exploring the world of
+            programming and web development.
+          </p>
+
+          <p>
+            I believe in learning by building projects, experimenting
+            with code, and improving a little every day.
+          </p>
+
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Git</span>
+            <span class="skill">GitHub</span>
+          </div>
+
+          <div class="buttons">
+            <a class="btn" href="about.html">More About Me</a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Want to connect or collaborate?</p>
-      <a class="button"
-         href="https://github.com/yourusername">
-        Connect on GitHub
-      </a>
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section class="content-section" id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+
+        <p class="section-description">
+          Here are some project slots for work you can showcase.
+          Replace these examples with your actual projects.
+        </p>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <h3>Personal Portfolio</h3>
+            <p>
+              A website introducing me, my interests, and the projects
+              I'm building while learning web development.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/ankit-kr04/ankit-kr04.github.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Repository →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <h3>Project Two</h3>
+            <p>
+              Add a description of another project, the problem it
+              solves, and the technologies you used.
+            </p>
+            <a class="project-link" href="projects.html">
+              Explore Projects →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <h3>Project Three</h3>
+            <p>
+              Use this card to showcase a future project or a coding
+              experiment you're proud of.
+            </p>
+            <a class="project-link" href="projects.html">
+              Explore Projects →
+            </a>
+          </article>
+        </div>
+
+        <div class="buttons">
+          <a class="btn" href="projects.html">View All Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="content-section" id="contact">
+      <div class="container">
+        <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+
+        <div class="contact-box">
+          <p>
+            Interested in my work or want to collaborate?
+            You can find me on GitHub.
+          </p>
+
+          <a
+            class="btn"
+            href="https://github.com/ankit-kr04"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Connect on GitHub
+          </a>
+
+          <div class="buttons">
+            <a class="project-link" href="contact.html">
+              More Contact Options →
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    © 2026 Your Name · Built with HTML and CSS
+    <div class="container">
+      <p>© 2026 Ankit. Built with HTML and CSS.</p>
+      <p>Hosted with GitHub Pages.</p>
+    </div>
   </footer>
+
 </body>
 </html>
